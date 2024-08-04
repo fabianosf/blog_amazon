@@ -1,0 +1,35 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+# arquivos estaticos cria fora do projeto
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    'mysite/static',
+    'meu_aplicativo/static',
+]
+
+
+
+# arquivos de media cria fora do projeto
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  BASE_DIR /'media'
+
+depois disso ir no arquivo urls.py do projeto e add isso :
+
+from django.conf.urls.static import static
+from django.conf import settings
+
+abaixo um exemplo: 
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", views.home, name='home'),
+] + static(settings.MEDIA_URL, documents_root=settings.MEDIA_ROOT)
+
+nesse caso eu criei uma pasta dentro com o nome de static.. 
+para que o django possa ver eles, preciso apontar onde esta a pasta, 
+porem isso se deve fazer no APP e nao no projeto...isso aqui é uma basse de estudos 
+para implementar em meus apps futuros, isso é apenas para entendimento
