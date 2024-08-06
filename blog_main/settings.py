@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # crispy_forms
     "crispy_forms",
     "crispy_bootstrap4",
+    "dashboards",
     
     
 ]
@@ -112,9 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "pt-Br"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Sao_Paulo"
 
 USE_I18N = True
 
